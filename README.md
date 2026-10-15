@@ -32,6 +32,30 @@ Screenshot adalah preview tampilan aplikasi yang dikirim sebelum perubahan nama 
 - WorkManager untuk pekerjaan notifikasi di latar belakang
 - Android Keystore dan enkripsi AES-GCM untuk melindungi URL webhook yang tersimpan
 
+## Keamanan dan Privasi
+
+### Perlindungan yang sudah ada
+
+- Data transaksi disimpan lokal di database Room dalam ruang penyimpanan privat aplikasi. Tidak ada integrasi bank, akun pengguna, atau sinkronisasi cloud.
+- URL webhook disamarkan saat diketik, dienkripsi dengan AES-GCM, dan kuncinya dikelola Android Keystore. Aplikasi memvalidasi URL agar memakai HTTPS dan domain webhook Discord.
+- Izin backup aplikasi dinonaktifkan melalui `android:allowBackup="false"`.
+- URL webhook tidak ditulis ke log aplikasi. Transaksi tetap disimpan meskipun notifikasi Discord gagal.
+
+### Batasan keamanan saat ini
+
+- Database Room **belum dienkripsi secara terpisah**. Penyimpanan privat Android membantu membatasi akses dari aplikasi lain, tetapi bukan perlindungan terhadap perangkat yang sudah di-root atau proses aplikasi yang berhasil diakses pihak lain.
+- Belum ada PIN, kata sandi, atau kunci biometrik di dalam aplikasi.
+- Menonaktifkan backup aplikasi tidak selalu mencegah pemindahan data langsung antarperangkat pada semua versi atau perangkat Android.
+- Saat notifikasi Discord digunakan, pesan transaksi pemasukan/pengeluaran memuat jenis, jumlah, saldo, kategori, sumber dana, waktu, dan catatan jika diisi. Transfer memuat jumlah, arah transfer, saldo total, dan waktu. Jangan masukkan informasi sensitif ke catatan.
+
+### Rencana pengembangan keamanan
+
+- Menambahkan opsi kunci aplikasi dengan PIN atau biometrik.
+- Mengevaluasi enkripsi database lokal untuk melindungi data transaksi saat perangkat tidak terkunci.
+- Menetapkan aturan backup dan pemindahan perangkat dengan lebih jelas, serta mempertimbangkan ekspor data terenkripsi yang dikendalikan pengguna.
+- Menyiapkan konfigurasi build rilis dan penandatanganan yang aman, lalu melakukan pemeriksaan keamanan sebelum distribusi lebih luas.
+- Mengevaluasi backend untuk mengelola pengiriman Discord jika aplikasi didistribusikan secara luas, sehingga URL webhook tidak disimpan di aplikasi klien.
+
 ## Menyiapkan webhook Discord
 
 Webhook mengirim pesan ke satu channel Discord. Buat webhook pada channel privat yang hanya dapat dilihat orang yang Anda percaya.
