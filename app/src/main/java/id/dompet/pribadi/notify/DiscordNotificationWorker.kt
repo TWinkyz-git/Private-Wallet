@@ -133,7 +133,7 @@ class DiscordNotificationWorker(context: Context, params: WorkerParameters) : Co
             .put("title", "🔄 Transfer antar saldo")
             .put("color", 0x1565C0)
             .put("fields", fields)
-            .put("footer", JSONObject().put("text", "Dompet Pribadi • IDR"))
+            .put("footer", JSONObject().put("text", "PriWallet • IDR"))
         return JSONObject().put("embeds", JSONArray().put(embed))
             .put("allowed_mentions", JSONObject().put("parse", JSONArray()))
     }
@@ -161,7 +161,7 @@ class DiscordNotificationWorker(context: Context, params: WorkerParameters) : Co
             .put("title", if (isIncome) "💰 Pemasukan baru" else "💸 Pengeluaran baru")
             .put("color", if (isIncome) 0x2E7D32 else 0xC62828)
             .put("fields", fields)
-            .put("footer", JSONObject().put("text", "Dompet Pribadi • IDR"))
+            .put("footer", JSONObject().put("text", "PriWallet • IDR"))
 
         return JSONObject()
             .put("embeds", JSONArray().put(embed))

@@ -118,7 +118,7 @@ private fun SummaryScreen(state: FinanceUiState, onAdd: () -> Unit, onSelect: (T
     val balance = accountBalance + cashBalance
     val idr = { value: Long -> formatIdr(value) }
     LazyColumn(modifier.fillMaxSize().padding(horizontal = 20.dp), contentPadding = PaddingValues(top = 28.dp, bottom = 100.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
-        item { Text("Dompet Pribadi", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold) }
+        item { Text("PriWallet", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold) }
         item {
             Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary), shape = RoundedCornerShape(24.dp)) {
                 Column(Modifier.fillMaxWidth().padding(22.dp)) {

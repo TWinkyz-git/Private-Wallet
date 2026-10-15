@@ -1,6 +1,18 @@
-# Dompet Pribadi
+# PriWallet
 
 Aplikasi Android Kotlin + Jetpack Compose untuk pencatatan keuangan lokal. Spesifikasi dan ruang lingkup yang disetujui ada di [SPECIFIKASI_MVP.md](SPECIFIKASI_MVP.md).
+
+## Preview
+
+<p align="center">
+  <img src="app/src/main/res/drawable-nodpi/ic_launcher_foreground.png" alt="Logo PriWallet" width="180" />
+</p>
+
+<p align="center">
+  <img src="docs/images/priwallet-preview.png" alt="Preview layar aplikasi PriWallet" width="320" />
+</p>
+
+Screenshot menampilkan tampilan aplikasi pada perangkat Android; nama layar pada screenshot diambil sebelum perubahan merek. Nama aplikasi pada instalasi baru adalah **PriWallet**.
 
 ## Menjalankan
 
